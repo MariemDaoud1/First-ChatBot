@@ -1,10 +1,4 @@
-**Notes et Légendes — First ChatBot**
-
-Objectif
-- Fournir une vue d'ensemble claire des fichiers, dépendances et commandes pour entraîner et lancer le chatbot.
-
 Structure du projet
-
 
 - `training.py` : script d'entraînement.
   - Rôle : charge `intents.json`, prépare les données (tokenization, nettoyage, vectorisation), définit le modèle (Keras/TensorFlow), entraîne et sauvegarde `chatbot_model.h5`.
@@ -51,8 +45,3 @@ Conseils d'utilisation et d'amélioration
 
 Fichiers temporaires et versionnement
 - Ne pas versionner `venv/` ni les fichiers binaires temporaires.
-
-Contact
-- Auteur du dépôt : `MariemDaoud1`
-- Date : 2025-12-06
-- `intents.json` : données d'entraînement (intentions). Structure attendue : liste d'objets avec `tag`, `patterns`, `responses`.- `chatbot_model.h5` : modèle Keras entraîné (format HDF5). Contient les poids du réseau — fichier binaire.
