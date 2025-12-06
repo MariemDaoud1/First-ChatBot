@@ -1,0 +1,58 @@
+**Notes et Légendes — First ChatBot**
+
+Objectif
+- Fournir une vue d'ensemble claire des fichiers, dépendances et commandes pour entraîner et lancer le chatbot.
+
+Structure du projet
+
+
+- `training.py` : script d'entraînement.
+  - Rôle : charge `intents.json`, prépare les données (tokenization, nettoyage, vectorisation), définit le modèle (Keras/TensorFlow), entraîne et sauvegarde `chatbot_model.h5`.
+  - Exécution : `python training.py`
+- `main.py` : script d'exécution du chatbot.
+  - Rôle : charge le modèle (`chatbot_model.h5`) et `intents.json`, reçoit la saisie utilisateur, prétraite (tokenize, bag-of-words ou vecteur), prédit le `tag` et renvoie une réponse choisie dans `responses`.
+  - Exécution : `python main.py`
+- `words.pkl` et `classes.pkl` : (si présents) objets sérialisés utilisés pour la correspondance de tokens et classes lors de l'inférence.
+- `classes.pkl` : liste des étiquettes (tags) sauvegardée pendant l'entraînement.
+- `venv/` : environnement virtuel local (ne pas versionner).
+
+Dépendances principales
+- Python 3.8+ recommandé
+- `tensorflow` ou `tensorflow-cpu` (selon GPU/CPU)
+- `numpy`
+- `nltk` (tokenization, stopwords) — si utilisé
+- `scikit-learn` (pour utilitaires de vectorisation ou split)
+- `pickle`, `json` (bibliothèques standard)
+
+Installation rapide (PowerShell)
+```
+python -m pip install --upgrade pip
+pip install tensorflow numpy nltk scikit-learn
+```
+
+Préparer NLTK (si utilisé)
+```
+python -c "import nltk; nltk.download('punkt'); nltk.download('wordnet')"
+```
+
+Commandes utiles
+- Entraîner le modèle (génère/écrase `chatbot_model.h5`) :
+  - `python training.py`
+- Lancer le chatbot en local :
+  - `python main.py`
+
+Conseils d'utilisation et d'amélioration
+- Sauvegardez `intents.json` avant édition pour éviter la perte de données.
+- Pour améliorer la qualité des réponses :
+  - Ajouter plus de `patterns` par `tag` et varier les formulations.
+  - Ajouter des réponses variées dans `responses` pour chaque `tag`.
+- Pour déboguer : afficher la probabilité de prédiction dans `main.py` et vérifier le mapping `classes.pkl` → `intents.json`.
+- Si vous changez la structure des données (nouveaux tokens, stemming), ré-entraînez avec `training.py`.
+
+Fichiers temporaires et versionnement
+- Ne pas versionner `venv/` ni les fichiers binaires temporaires.
+
+Contact
+- Auteur du dépôt : `MariemDaoud1`
+- Date : 2025-12-06
+- `intents.json` : données d'entraînement (intentions). Structure attendue : liste d'objets avec `tag`, `patterns`, `responses`.- `chatbot_model.h5` : modèle Keras entraîné (format HDF5). Contient les poids du réseau — fichier binaire.
