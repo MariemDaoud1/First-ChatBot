@@ -1,0 +1,20 @@
+{"intents":[
+    {"tag":"greeting",
+    "patterns":["Hi","Hello","Hey","Good morning","Good evening"],
+    "responses":["Hello! How can I assist you today?","Hi there! What can I do for you?","Greetings! How may I help you?"]},
+
+    {"tag":"goodbye",
+    "patterns":["Bye","See you later","Goodbye","Take care"],
+    "responses":["Goodbye! Have a great day!","See you later!","Take care!"]},
+
+    {"tag":"thanks",
+    "patterns":["Thanks","Thank you","That's helpful"],
+    "responses":["You're welcome!","No problem! Happy to help.","Anytime!"]},
+
+    {"tag":"hours",
+    "patterns":["What are your hours?","When are you open?","Opening hours"],
+    "responses":["We are open from 9 AM to 5 PM, Monday to Friday.","Our hours are 9 AM - 5 PM on weekdays."]},
+
+    {"tag":"location",
+    "patterns":["Where are you located?","What is your address?","Location details"],
+    "responses":["We are located at 123 Main Street, Anytown, USA.","Our address is 123 Main Street, Anytown."]}]}
